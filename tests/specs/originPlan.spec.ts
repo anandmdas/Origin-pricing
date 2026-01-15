@@ -25,14 +25,14 @@ test('Validate pdfGasPlan', async ({ page }, testInfo) => {
     const pdfPage =new PlanPdfPage(page, testInfo);
     await pricingPage.navigateToOrigin();
     await pricingPage.SearchAddress(testData);
-    await pricingPage.ValidateTableDisplayed();
-    await pricingPage.unCheckEnergyFilter(testData);
-    await pricingPage.ValidateTableDisplayed();
-    await pricingPage.validateEnergyFilterApplied(testData);
-    const planLink= await pricingPage.getEnergyPlanUrl(testData);
+    await pricingPage.ValidateTableDisplayed();  //Validate table displayed after address search
+    await pricingPage.unCheckEnergyFilter(testData); //Uncheck electricity to have only gas plans
+    await pricingPage.ValidateTableDisplayed(); //Validate table displayed after filter applied
+    await pricingPage.validateEnergyFilterApplied(testData); //Validate only gas plans are displayed
+    const planLink= await pricingPage.getEnergyPlanUrl(testData); //Get the plan link for the gas plan and click to open in new tab
     if (!planLink) throw new Error(`Failed to find plan link for "${testInfo.title}"`);
-    const path = await pdfPage.downloadPdf(planLink);
-    await pdfPage.validatePdfContent(path, testData);
+    const path = await pdfPage.downloadPdf(planLink); //Download the pdf from the plan link
+    await pdfPage.validatePdfContent(path, testData); //Validate the pdf content against the test data
   });
 
 });

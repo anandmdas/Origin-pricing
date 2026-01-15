@@ -1,0 +1,30 @@
+[
+    {
+        "scenarioName":"Validate Origin Energy Pricing Landing",
+        "data":{
+            "address": "17 Bolinda Road, BALWYN NORTH VIC"
+        }
+    },
+    {
+        "scenarioName":"Validate Available Plans for Address",
+        "data":{
+            "address": "17 Bolinda Road, BALWYN NORTH VIC"
+        }
+    },
+    {
+        "scenarioName":"Validate pdfGasPlan",
+        "data":{
+            "address": "17 Bolinda Road, BALWYN NORTH VIC",
+            "distributor":"Multinet",
+            "energyType":"Natural gas",
+            "planName":"Origin Go Variable",
+            "tariffType":"Single Rate",
+            "uncheckEnergyTypeFilter":"electricity",
+            "pdfContenet":[
+                "Fuel typeGas",
+                "Estimated gas cost",
+                "MJ/day"
+            ]
+        }
+    }
+]
